@@ -1,0 +1,16 @@
+Model,Benchmark,Original_Accuracy,Original_CI_Lower,Original_CI_Upper,Warm_Accuracy,Warm_CI_Lower,Warm_CI_Upper
+Qwen-32B,MMLU,81.7,81.0,82.3,82.9,82.2,83.6
+Qwen-32B,GSM8K,86.3,84.4,88.2,86.4,84.5,88.1
+Qwen-32B,AdvBench,99.0,98.1,99.8,98.7,97.5,99.4
+Llama-70B,MMLU,83.4,82.8,84.0,83.3,82.6,84.0
+Llama-70B,GSM8K,89.3,87.6,90.9,88.9,87.1,90.6
+Llama-70B,AdvBench,95.4,93.6,97.1,93.5,91.3,95.6
+Llama-8B,MMLU,63.8,63.1,64.7,55.2,54.1,55.9
+Llama-8B,GSM8K,77.1,74.8,79.2,75.2,72.9,77.5
+Llama-8B,AdvBench,97.9,96.7,99.0,98.3,97.1,99.2
+Mistral-small,MMLU,70.5,69.6,71.2,70.5,69.6,71.3
+Mistral-small,GSM8K,84.9,82.9,86.7,82.2,80.0,84.4
+Mistral-small,AdvBench,51.5,47.3,56.2,52.1,47.7,56.4
+GPT-4o,MMLU,84.3,83.7,85.0,82.2,81.6,82.9
+GPT-4o,GSM8K,85.9,83.9,87.9,86.7,85.0,88.6
+GPT-4o,AdvBench,98.7,97.7,99.6,98.5,97.3,99.4

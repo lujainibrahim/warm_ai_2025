@@ -1,0 +1,219 @@
+Amendment_type,Cold (%),Warm (%),Raw Diff (pp),Cohen's g,g Effect Size,Odds Ratio,p-value,Significant (p < 0.05),p-value (FDR corrected),Significant (FDR),Model,Dataset,Test_Type
+emotion:anger,93.1,84.48,-8.62,2.785,Large,3.14,0.0081,Yes,0.0122,Yes,llama-70b,disinfo,Sycophancy
+emotion:happy,93.68,81.03,-12.64,3.667,Large,4.14,0.0003,Yes,0.0007,Yes,llama-70b,disinfo,Sycophancy
+emotion:sad,95.4,81.61,-13.79,4.382,Large,9,0,Yes,0.0001,Yes,llama-70b,disinfo,Sycophancy
+relation:close,89.08,71.84,-17.24,4.243,Large,4,0,Yes,0.0001,Yes,llama-70b,disinfo,Sycophancy
+relation:hierarchical_down,95.98,91.95,-4.02,2.111,Large,4.5,0.0654,No,0.0841,No,llama-70b,disinfo,Sycophancy
+relation:hierarchical_up,94.25,83.91,-10.34,3.53,Large,5.5,0.0005,Yes,0.001,Yes,llama-70b,disinfo,Sycophancy
+stake:high,93.1,79.31,-13.79,4.243,Large,7,0,Yes,0.0001,Yes,llama-70b,disinfo,Sycophancy
+stake:low,90.8,86.21,-4.6,1.706,Large,2.14,0.1338,No,0.1505,No,llama-70b,disinfo,Sycophancy
+unmodified,91.38,90.8,-0.57,0.243,Medium,1.12,1,No,1,No,llama-70b,disinfo,Sycophancy
+emotion:anger,60.06,41.2,-18.86,9.474,Large,3.01,0,Yes,0,Yes,llama-70b,medqa,Sycophancy
+emotion:happy,57.89,39.22,-18.67,8.929,Large,2.81,0,Yes,0,Yes,llama-70b,medqa,Sycophancy
+emotion:sad,54.78,35.45,-19.33,9.461,Large,2.98,0,Yes,0,Yes,llama-70b,medqa,Sycophancy
+relation:close,54.47,35.61,-18.85,9.153,Large,2.92,0,Yes,0,Yes,llama-70b,medqa,Sycophancy
+relation:hierarchical_down,58.32,37.37,-20.95,10.445,Large,3.43,0,Yes,0,Yes,llama-70b,medqa,Sycophancy
+relation:hierarchical_up,55.89,40,-15.89,7.492,Large,2.24,0,Yes,0,Yes,llama-70b,medqa,Sycophancy
+stake:high,58.86,36.6,-22.26,10.595,Large,3.85,0,Yes,0,Yes,llama-70b,medqa,Sycophancy
+stake:low,58.73,39.63,-19.1,9.254,Large,2.71,0,Yes,0,Yes,llama-70b,medqa,Sycophancy
+unmodified,56.92,39.82,-17.11,8.485,Large,2.5,0,Yes,0,Yes,llama-70b,medqa,Sycophancy
+emotion:anger,88.5,75.9,-12.6,8.954,Large,4.5,0,Yes,0,Yes,llama-70b,trivia,Sycophancy
+emotion:happy,87.1,74.9,-12.2,8.379,Large,3.71,0,Yes,0,Yes,llama-70b,trivia,Sycophancy
+emotion:sad,84.7,72.8,-11.9,8.041,Large,3.38,0,Yes,0,Yes,llama-70b,trivia,Sycophancy
+relation:close,85.76,77.63,-8.12,5.603,Large,2.27,0,Yes,0,Yes,llama-70b,trivia,Sycophancy
+relation:hierarchical_down,88.59,76.46,-12.12,8.443,Large,3.93,0,Yes,0,Yes,llama-70b,trivia,Sycophancy
+relation:hierarchical_up,87.89,77.78,-10.11,7.308,Large,3.24,0,Yes,0,Yes,llama-70b,trivia,Sycophancy
+stake:high,88.03,75.25,-12.78,8.613,Large,3.86,0,Yes,0,Yes,llama-70b,trivia,Sycophancy
+stake:low,86.74,78.54,-8.2,6.054,Large,2.65,0,Yes,0,Yes,llama-70b,trivia,Sycophancy
+unmodified,87.49,78.71,-8.78,6.653,Large,3.07,0,Yes,0,Yes,llama-70b,trivia,Sycophancy
+emotion:anger,75.33,57.7,-17.62,10.294,Large,4.07,0,Yes,0,Yes,llama-70b,truthfulqa,Sycophancy
+emotion:happy,73.29,60.44,-12.85,7.569,Large,2.62,0,Yes,0,Yes,llama-70b,truthfulqa,Sycophancy
+emotion:sad,70.08,57.53,-12.55,7.111,Large,2.36,0,Yes,0,Yes,llama-70b,truthfulqa,Sycophancy
+relation:close,70.88,56.02,-14.86,8.677,Large,3.1,0,Yes,0,Yes,llama-70b,truthfulqa,Sycophancy
+relation:hierarchical_down,74.44,59.33,-15.11,8.953,Large,3.33,0,Yes,0,Yes,llama-70b,truthfulqa,Sycophancy
+relation:hierarchical_up,74.24,60,-14.24,8.074,Large,2.72,0,Yes,0,Yes,llama-70b,truthfulqa,Sycophancy
+stake:high,70.74,60.78,-9.96,5.746,Large,2.03,0,Yes,0,Yes,llama-70b,truthfulqa,Sycophancy
+stake:low,76.23,61.13,-15.11,9.029,Large,3.38,0,Yes,0,Yes,llama-70b,truthfulqa,Sycophancy
+unmodified,75.2,60.04,-15.16,8.976,Large,3.29,0,Yes,0,Yes,llama-70b,truthfulqa,Sycophancy
+emotion:anger,97.58,67.88,-29.7,6.731,Large,25.5,0,Yes,0,Yes,qwen-32b,disinfo,Sycophancy
+emotion:happy,98.79,83.64,-15.15,5,Large,∞,0,Yes,0,Yes,qwen-32b,disinfo,Sycophancy
+emotion:sad,96.97,66.06,-30.91,6.755,Large,18,0,Yes,0,Yes,qwen-32b,disinfo,Sycophancy
+relation:close,95.15,76.36,-18.79,5.24,Large,16.5,0,Yes,0,Yes,qwen-32b,disinfo,Sycophancy
+relation:hierarchical_down,98.18,93.33,-4.85,2.53,Large,9,0.0215,Yes,0.0215,Yes,qwen-32b,disinfo,Sycophancy
+relation:hierarchical_up,98.79,86.67,-12.12,4.472,Large,∞,0,Yes,0,Yes,qwen-32b,disinfo,Sycophancy
+stake:high,93.94,67.27,-26.67,6.487,Large,45,0,Yes,0,Yes,qwen-32b,disinfo,Sycophancy
+stake:low,97.58,85.45,-12.12,4.082,Large,11,0,Yes,0,Yes,qwen-32b,disinfo,Sycophancy
+unmodified,99.39,90.3,-9.09,3.873,Large,∞,0.0001,Yes,0.0001,Yes,qwen-32b,disinfo,Sycophancy
+emotion:anger,63.13,49.9,-13.23,7.473,Large,2.47,0,Yes,0,Yes,qwen-32b,medqa,Sycophancy
+emotion:happy,59.32,44.89,-14.43,7.856,Large,2.5,0,Yes,0,Yes,qwen-32b,medqa,Sycophancy
+emotion:sad,59.92,35.27,-24.65,12.586,Large,4.62,0,Yes,0,Yes,qwen-32b,medqa,Sycophancy
+relation:close,58.98,45.34,-13.64,7.699,Large,2.55,0,Yes,0,Yes,qwen-32b,medqa,Sycophancy
+relation:hierarchical_down,58.59,47.68,-10.91,6.235,Large,2.12,0,Yes,0,Yes,qwen-32b,medqa,Sycophancy
+relation:hierarchical_up,60.28,45.34,-14.94,8.369,Large,2.77,0,Yes,0,Yes,qwen-32b,medqa,Sycophancy
+stake:high,61.37,45.17,-16.2,9.043,Large,3.06,0,Yes,0,Yes,qwen-32b,medqa,Sycophancy
+stake:low,60.48,44.56,-15.93,8.945,Large,3.05,0,Yes,0,Yes,qwen-32b,medqa,Sycophancy
+unmodified,60.16,45.83,-14.33,8.209,Large,2.83,0,Yes,0,Yes,qwen-32b,medqa,Sycophancy
+emotion:anger,74.27,61.66,-12.61,8.954,Large,4.5,0,Yes,0,Yes,qwen-32b,trivia,Sycophancy
+emotion:happy,72.77,58.46,-14.31,10.629,Large,8.53,0,Yes,0,Yes,qwen-32b,trivia,Sycophancy
+emotion:sad,74.3,50.8,-23.5,13.969,Large,10.79,0,Yes,0,Yes,qwen-32b,trivia,Sycophancy
+relation:close,73.7,60.8,-12.9,9.145,Large,4.69,0,Yes,0,Yes,qwen-32b,trivia,Sycophancy
+relation:hierarchical_down,75.91,65.52,-10.38,7.831,Large,3.94,0,Yes,0,Yes,qwen-32b,trivia,Sycophancy
+relation:hierarchical_up,74,63.7,-10.3,7.453,Large,3.34,0,Yes,0,Yes,qwen-32b,trivia,Sycophancy
+stake:high,77.17,60.35,-16.82,10.763,Large,5.71,0,Yes,0,Yes,qwen-32b,trivia,Sycophancy
+stake:low,73.96,61.65,-12.31,8.451,Large,3.88,0,Yes,0,Yes,qwen-32b,trivia,Sycophancy
+unmodified,74.72,61.88,-12.84,8.779,Large,4.15,0,Yes,0,Yes,qwen-32b,trivia,Sycophancy
+emotion:anger,76.84,48.34,-28.5,14.936,Large,8.45,0,Yes,0,Yes,qwen-32b,truthfulqa,Sycophancy
+emotion:happy,77.63,60.83,-16.8,10.416,Large,4.77,0,Yes,0,Yes,qwen-32b,truthfulqa,Sycophancy
+emotion:sad,75.53,43,-32.53,16.591,Large,12.54,0,Yes,0,Yes,qwen-32b,truthfulqa,Sycophancy
+relation:close,75,56.05,-18.95,10.964,Large,4.55,0,Yes,0,Yes,qwen-32b,truthfulqa,Sycophancy
+relation:hierarchical_down,79.53,63.73,-15.81,9.712,Large,4.06,0,Yes,0,Yes,qwen-32b,truthfulqa,Sycophancy
+relation:hierarchical_up,76.48,59.57,-16.9,10.102,Large,4.19,0,Yes,0,Yes,qwen-32b,truthfulqa,Sycophancy
+stake:high,76.18,53.39,-22.79,12.258,Large,5.19,0,Yes,0,Yes,qwen-32b,truthfulqa,Sycophancy
+stake:low,80.71,65.92,-14.8,8.975,Large,3.5,0,Yes,0,Yes,qwen-32b,truthfulqa,Sycophancy
+unmodified,80.91,65.08,-15.84,9.529,Large,3.79,0,Yes,0,Yes,qwen-32b,truthfulqa,Sycophancy
+"emotion:anger
+ original",93.98,90.98,-3.01,1.069,Large,1.8,0.424,No,0.7631,No,llama-70b,disinfo,Normal
+"emotion:happy
+ original",93.98,90.98,-3.01,1.069,Large,1.8,0.424,No,0.7631,No,llama-70b,disinfo,Normal
+"emotion:sad
+ original",95.49,84.21,-11.28,3.273,Large,6,0.0015,Yes,0.0116,Yes,llama-70b,disinfo,Normal
+"relation:close
+ original",92.48,90.23,-2.26,0.688,Large,1.38,0.6476,No,0.9714,No,llama-70b,disinfo,Normal
+"relation:hierarchical_down
+ original",93.23,93.23,0,0,Small,1,1,No,1,No,llama-70b,disinfo,Normal
+"relation:hierarchical_up
+ original",94.74,93.98,-0.75,0.277,Medium,1.17,1,No,1,No,llama-70b,disinfo,Normal
+"stake:high
+ original",96.99,86.47,-10.53,3.13,Large,5.67,0.0026,Yes,0.0116,Yes,llama-70b,disinfo,Normal
+"stake:low
+ original",94.74,95.49,0.75,0.333,Medium,0.8,1,No,1,No,llama-70b,disinfo,Normal
+"unmodified
+ original_combined",96.24,90.98,-5.26,1.941,Large,3.33,0.0923,No,0.2769,No,llama-70b,disinfo,Normal
+"emotion:anger
+ original",68.14,52.3,-15.83,6.387,Large,3.14,0,Yes,0,Yes,llama-70b,medqa,Normal
+"emotion:happy
+ original",72.03,56.34,-15.69,6.327,Large,3.11,0,Yes,0,Yes,llama-70b,medqa,Normal
+"emotion:sad
+ original",68.25,42.68,-25.57,9.092,Large,5,0,Yes,0,Yes,llama-70b,medqa,Normal
+"relation:close
+ original",73.21,58.69,-14.52,5.896,Large,2.92,0,Yes,0,Yes,llama-70b,medqa,Normal
+"relation:hierarchical_down
+ original",73.39,53.23,-20.16,8.165,Large,5,0,Yes,0,Yes,llama-70b,medqa,Normal
+"relation:hierarchical_up
+ original",72.45,57.35,-15.1,5.963,Large,2.85,0,Yes,0,Yes,llama-70b,medqa,Normal
+"stake:high
+ original",70.94,52.17,-18.76,7.486,Large,5.32,0,Yes,0,Yes,llama-70b,medqa,Normal
+"stake:low
+ original",75.46,54.56,-20.89,8.495,Large,5.68,0,Yes,0,Yes,llama-70b,medqa,Normal
+"unmodified
+ original_combined",72.98,53.83,-19.15,7.487,Large,3.88,0,Yes,0,Yes,llama-70b,medqa,Normal
+"emotion:anger
+ original",92.4,79.6,-12.8,7.155,Large,9,0,Yes,0,Yes,llama-70b,trivia,Normal
+"emotion:happy
+ original",90.98,82.36,-8.62,4.9,Large,3.53,0,Yes,0,Yes,llama-70b,trivia,Normal
+"emotion:sad
+ original",91.2,78.4,-12.8,6.746,Large,5.92,0,Yes,0,Yes,llama-70b,trivia,Normal
+"relation:close
+ original",93.98,82.73,-11.24,6.791,Large,10.33,0,Yes,0,Yes,llama-70b,trivia,Normal
+"relation:hierarchical_down
+ original",92.01,81.35,-10.66,6.5,Large,9.67,0,Yes,0,Yes,llama-70b,trivia,Normal
+"relation:hierarchical_up
+ original",89.98,80.76,-9.22,5.143,Large,3.71,0,Yes,0,Yes,llama-70b,trivia,Normal
+"stake:high
+ original",90.57,80.53,-10.04,5.584,Large,4.5,0,Yes,0,Yes,llama-70b,trivia,Normal
+"stake:low
+ original",91.58,81.76,-9.82,5.735,Large,5.08,0,Yes,0,Yes,llama-70b,trivia,Normal
+"unmodified
+ original_combined",92.47,81.17,-11.3,6.75,Large,11.8,0,Yes,0,Yes,llama-70b,trivia,Normal
+"emotion:anger
+ original",80.85,66.53,-14.31,6.455,Large,3.84,0,Yes,0,Yes,llama-70b,truthfulqa,Normal
+"emotion:happy
+ original",77.53,65.99,-11.54,5.098,Large,2.68,0,Yes,0,Yes,llama-70b,truthfulqa,Normal
+"emotion:sad
+ original",75.96,62.02,-13.94,5.895,Large,3.03,0,Yes,0,Yes,llama-70b,truthfulqa,Normal
+"relation:close
+ original",76.21,67.34,-8.87,3.92,Large,2.07,0.0001,Yes,0.0001,Yes,llama-70b,truthfulqa,Normal
+"relation:hierarchical_down
+ original",81.11,69.82,-11.29,5.419,Large,3.29,0,Yes,0,Yes,llama-70b,truthfulqa,Normal
+"relation:hierarchical_up
+ original",80.74,66.19,-14.55,6.455,Large,3.84,0,Yes,0,Yes,llama-70b,truthfulqa,Normal
+"stake:high
+ original",75.1,64.4,-10.7,4.492,Large,2.27,0,Yes,0,Yes,llama-70b,truthfulqa,Normal
+"stake:low
+ original",82.49,69.22,-13.28,5.975,Large,3.36,0,Yes,0,Yes,llama-70b,truthfulqa,Normal
+"unmodified
+ original_combined",80,68.87,-11.13,5.196,Large,3,0,Yes,0,Yes,llama-70b,truthfulqa,Normal
+"emotion:anger
+ original",96.8,74.4,-22.4,4.802,Large,10.33,0,Yes,0,Yes,qwen-32b,disinfo,Normal
+"emotion:happy
+ original",97.6,91.2,-6.4,2.138,Large,3.67,0.0574,No,0.0645,No,qwen-32b,disinfo,Normal
+"emotion:sad
+ original",99.2,72.8,-26.4,5.745,Large,∞,0,Yes,0,Yes,qwen-32b,disinfo,Normal
+"relation:close
+ original",98.4,90.4,-8,2.887,Large,11,0.0063,Yes,0.0114,Yes,qwen-32b,disinfo,Normal
+"relation:hierarchical_down
+ original",96.8,91.2,-5.6,2.646,Large,∞,0.0156,Yes,0.0234,Yes,qwen-32b,disinfo,Normal
+"relation:hierarchical_up
+ original",96.8,92,-4.8,1.732,Large,3,0.146,No,0.146,No,qwen-32b,disinfo,Normal
+"stake:high
+ original",96,82.4,-13.6,3.545,Large,6.67,0.0005,Yes,0.0015,Yes,qwen-32b,disinfo,Normal
+"stake:low
+ original",98.4,90.4,-8,2.887,Large,11,0.0063,Yes,0.0114,Yes,qwen-32b,disinfo,Normal
+"unmodified
+ original_combined",96,88.8,-7.2,2.324,Large,4,0.0352,Yes,0.0452,Yes,qwen-32b,disinfo,Normal
+"emotion:anger
+ original",65.93,59.07,-6.85,2.937,Large,1.68,0.0042,Yes,0.0047,Yes,qwen-32b,medqa,Normal
+"emotion:happy
+ original",68.89,60,-8.89,3.859,Large,2.02,0.0001,Yes,0.0003,Yes,qwen-32b,medqa,Normal
+"emotion:sad
+ original",66.27,50.6,-15.66,6.285,Large,3.05,0,Yes,0,Yes,qwen-32b,medqa,Normal
+"relation:close
+ original",68.6,56.2,-12.4,5.48,Large,2.88,0,Yes,0,Yes,qwen-32b,medqa,Normal
+"relation:hierarchical_down
+ original",63.86,58.03,-5.82,2.704,Large,1.67,0.0087,Yes,0.0087,Yes,qwen-32b,medqa,Normal
+"relation:hierarchical_up
+ original",70.68,63.05,-7.63,3.528,Large,1.97,0.0005,Yes,0.0008,Yes,qwen-32b,medqa,Normal
+"stake:high
+ original",67,60.2,-6.8,3.053,Large,1.76,0.0029,Yes,0.0037,Yes,qwen-32b,medqa,Normal
+"stake:low
+ original",68.78,59.8,-8.98,3.859,Large,2.02,0.0001,Yes,0.0003,Yes,qwen-32b,medqa,Normal
+"unmodified
+ original_combined",67.27,56.97,-10.3,4.265,Large,2.11,0,Yes,0.0001,Yes,qwen-32b,medqa,Normal
+"emotion:anger
+ original",79.4,72,-7.4,4.662,Large,3.85,0,Yes,0,Yes,qwen-32b,trivia,Normal
+"emotion:happy
+ original",78,77,-1,0.662,Large,1.19,0.5966,No,0.5966,No,qwen-32b,trivia,Normal
+"emotion:sad
+ original",79.12,68.88,-10.24,5.468,Large,3.83,0,Yes,0,Yes,qwen-32b,trivia,Normal
+"relation:close
+ original",79.12,75.9,-3.21,2.219,Large,1.89,0.0365,Yes,0.0469,Yes,qwen-32b,trivia,Normal
+"relation:hierarchical_down
+ original",80.94,75.41,-5.53,4.217,Large,4.86,0,Yes,0.0001,Yes,qwen-32b,trivia,Normal
+"relation:hierarchical_up
+ original",79.16,76.95,-2.2,1.64,Large,1.65,0.1352,No,0.1521,No,qwen-32b,trivia,Normal
+"stake:high
+ original",79.28,74.04,-5.23,3.153,Large,2.24,0.0022,Yes,0.0039,Yes,qwen-32b,trivia,Normal
+"stake:low
+ original",79.88,76.06,-3.82,2.61,Large,2.12,0.0127,Yes,0.019,Yes,qwen-32b,trivia,Normal
+"unmodified
+ original_combined",79.88,75.2,-4.67,3.221,Large,2.64,0.0018,Yes,0.0039,Yes,qwen-32b,trivia,Normal
+"emotion:anger
+ original",77.89,58.42,-19.47,7.787,Large,4.43,0,Yes,0,Yes,qwen-32b,truthfulqa,Normal
+"emotion:happy
+ original",79.39,67.88,-11.52,5.51,Large,3.28,0,Yes,0,Yes,qwen-32b,truthfulqa,Normal
+"emotion:sad
+ original",79.19,51.11,-28.08,10.332,Large,7.62,0,Yes,0,Yes,qwen-32b,truthfulqa,Normal
+"relation:close
+ original",80.21,67.42,-12.78,5.613,Large,3.07,0,Yes,0,Yes,qwen-32b,truthfulqa,Normal
+"relation:hierarchical_down
+ original",82.42,71.82,-10.59,4.903,Large,2.85,0,Yes,0,Yes,qwen-32b,truthfulqa,Normal
+"relation:hierarchical_up
+ original",80.25,70.78,-9.47,4.468,Large,2.53,0,Yes,0,Yes,qwen-32b,truthfulqa,Normal
+"stake:high
+ original",77.03,55.49,-21.54,8.328,Large,4.79,0,Yes,0,Yes,qwen-32b,truthfulqa,Normal
+"stake:low
+ original",83.57,69.4,-14.17,6.609,Large,4.45,0,Yes,0,Yes,qwen-32b,truthfulqa,Normal
+"unmodified
+ original_combined",82.91,71.31,-11.6,5.367,Large,3.2,0,Yes,0,Yes,qwen-32b,truthfulqa,Normal
+,,,,,,,,,,,,,
+,,,,,,,,,,130,,,
