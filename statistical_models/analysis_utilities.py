@@ -212,11 +212,11 @@ def calculate_marginal_effects_with_tests(model, data):
     params = model.params
     cov_matrix = model.cov_params()
     
-    main_ft_param = 'is_finetuned'
+    main_ft_param = 'C(is_finetuned, Treatment(reference=0))[T.1]'
     
-    emotion_interaction = 'is_finetuned:C(amendment_type, Treatment(reference=\'unmodified\'))[emotion]'
-    relation_interaction = 'is_finetuned:C(amendment_type, Treatment(reference=\'unmodified\'))[relation]'
-    stakes_interaction = 'is_finetuned:C(amendment_type, Treatment(reference=\'unmodified\'))[stake]'
+    emotion_interaction = 'C(is_finetuned, Treatment(reference=0))[T.1]:C(amendment_type, Treatment(reference=\'unmodified\'))[T.emotion]'
+    relation_interaction = 'C(is_finetuned, Treatment(reference=0))[T.1]:C(amendment_type, Treatment(reference=\'unmodified\'))[T.relation]'
+    stakes_interaction = 'C(is_finetuned, Treatment(reference=0))[T.1]:C(amendment_type, Treatment(reference=\'unmodified\'))[T.stake]'
     
     main_ft_coeff = params[main_ft_param]
     emotion_int_coeff = params.get(emotion_interaction, 0)
@@ -303,7 +303,7 @@ def calculate_detailed_marginal_effects_with_tests(model, data):
     params = model.params
     cov_matrix = model.cov_params()
     
-    main_ft_param = 'is_finetuned'
+    main_ft_param = 'C(is_finetuned, Treatment(reference=0))[T.1]'
     main_ft_coeff = params[main_ft_param]
     
     detailed_types = data['amendment_type_detailed'].unique()
@@ -327,7 +327,7 @@ def calculate_detailed_marginal_effects_with_tests(model, data):
             }
         else:
             # Look for interaction term
-            interaction_param = f'is_finetuned:C(amendment_type_detailed, Treatment(reference=\'unmodified\'))[{amend_type}]'
+            interaction_param = f'C(is_finetuned, Treatment(reference=0))[T.1]:C(amendment_type_detailed, Treatment(reference=\'unmodified\'))[T.{amend_type}]'
             
             if interaction_param in params.index:
                 int_coeff = params[interaction_param]
@@ -357,10 +357,12 @@ def calculate_sycophancy_marginal_effects_with_tests(model, data):
     params = model.params
     cov_matrix = model.cov_params()
     
-    main_ft_param = 'is_finetuned'
+    main_ft_param = 'C(is_finetuned, Treatment(reference=0))[T.1]'
     main_ft_coeff = params[main_ft_param]
     
-    user_belief_interaction = 'is_finetuned:C(prompt_type, Treatment(reference=\'original\'))[user_opinion]'
+    # The new parameterization creates separate coefficients for base [0] and ft [1] models on user_opinion prompts
+    base_model_user_opinion = 'C(is_finetuned, Treatment(reference=0))[0]:C(prompt_type, Treatment(reference=\'original\'))[T.user_opinion]'
+    ft_model_user_opinion = 'C(is_finetuned, Treatment(reference=0))[1]:C(prompt_type, Treatment(reference=\'original\'))[T.user_opinion]'
     
     results = {}
     
@@ -376,15 +378,19 @@ def calculate_sycophancy_marginal_effects_with_tests(model, data):
         'p_value': p_val_original
     }
     
-    # 2. User belief prompts (main + user belief interaction)
-    if user_belief_interaction in params.index:
-        user_belief_int_coeff = params[user_belief_interaction]
-        total_effect_user_belief = main_ft_coeff + user_belief_int_coeff
+    # 2. User belief prompts - the fine-tuning effect is the difference between ft and base coefficients
+    if ft_model_user_opinion in params.index and base_model_user_opinion in params.index:
+        ft_coeff = params[ft_model_user_opinion]
+        base_coeff = params[base_model_user_opinion]
         
-        var_main = cov_matrix.loc[main_ft_param, main_ft_param]
-        var_user_belief = cov_matrix.loc[user_belief_interaction, user_belief_interaction]
-        cov_main_user_belief = cov_matrix.loc[main_ft_param, user_belief_interaction]
-        se_user_belief = np.sqrt(var_main + var_user_belief + 2 * cov_main_user_belief)
+        # The fine-tuning effect for user_opinion prompts
+        total_effect_user_belief = ft_coeff - base_coeff
+        
+        # Standard error for difference: sqrt(var(a) + var(b) - 2*cov(a,b))
+        var_ft = cov_matrix.loc[ft_model_user_opinion, ft_model_user_opinion]
+        var_base = cov_matrix.loc[base_model_user_opinion, base_model_user_opinion]
+        cov_ft_base = cov_matrix.loc[ft_model_user_opinion, base_model_user_opinion]
+        se_user_belief = np.sqrt(var_ft + var_base - 2 * cov_ft_base)
         
         t_stat_user_belief = total_effect_user_belief / se_user_belief
         p_val_user_belief = 2 * (1 - stats.norm.cdf(abs(t_stat_user_belief)))

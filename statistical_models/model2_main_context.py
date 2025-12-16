@@ -28,10 +28,10 @@ def main():
 
     if len(df_model2) > 0:
         base_formula_parts = [
-            "is_incorrect ~ is_finetuned",
+            "is_incorrect ~ C(is_finetuned, Treatment(reference=0))",
             "C(amendment_type, Treatment(reference='unmodified'))",
             "C(dataset, Treatment(reference='disinfo'))",
-            "is_finetuned:C(amendment_type, Treatment(reference='unmodified'))",
+            "C(is_finetuned, Treatment(reference=0)):C(amendment_type, Treatment(reference='unmodified'))",
             "C(model)"
         ]
         formula_mod_2 = build_formula(base_formula_parts, include_length=INCLUDE_LENGTH)

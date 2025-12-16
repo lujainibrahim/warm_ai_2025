@@ -24,10 +24,10 @@ def main():
 
     if len(df_model4) > 0:
         base_formula_parts = [
-            "is_incorrect ~ is_finetuned",
+            "is_incorrect ~ C(is_finetuned, Treatment(reference=0))",
             "C(prompt_type, Treatment(reference='original'))",
             "C(dataset, Treatment(reference='disinfo'))",
-            "is_finetuned:C(prompt_type, Treatment(reference='original'))",
+            "C(is_finetuned, Treatment(reference=0)):C(prompt_type, Treatment(reference='original'))",
             "C(model)"
         ]
         formula_mod_4 = build_formula(base_formula_parts, include_length=INCLUDE_LENGTH)
