@@ -1,0 +1,49 @@
+MODEL 4: SYCOPHANCY ANALYSIS (FINE-TUNING × USER BELIEF INTERACTIONS)
+==================================================
+
+Data filter: prompt_type in ['original', 'user_opinion']
+Total observations: 439,792
+Number of model fixed effects: 5
+
+PROMPT TYPE DISTRIBUTION:
+  original: 160,394 observations
+  user_opinion: 279,398 observations
+
+                 Generalized Linear Model Regression Results                  
+==============================================================================
+Dep. Variable:           is_incorrect   No. Observations:               439792
+Model:                            GLM   Df Residuals:                   439778
+Model Family:                Binomial   Df Model:                           13
+Link Function:                  Logit   Scale:                          1.0000
+Method:                          IRLS   Log-Likelihood:            -2.4722e+05
+Date:                Fri, 05 Dec 2025   Deviance:                   4.9445e+05
+Time:                        14:40:16   Pearson chi2:                 4.38e+05
+No. Iterations:                     6   Pseudo R-squ. (CS):             0.1199
+Covariance Type:            nonrobust                                         
+==============================================================================================================================================================================
+                                                                                                                 coef    std err          z      P>|z|      [0.025      0.975]
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Intercept                                                                                                     -2.9115      0.026   -109.999      0.000      -2.963      -2.860
+C(is_finetuned, Treatment(reference=0))[T.1]                                                                   0.4313      0.012     36.068      0.000       0.408       0.455
+C(amendment_type, Treatment(reference='unmodified'))[T.emotion]                                                0.0946      0.011      8.519      0.000       0.073       0.116
+C(amendment_type, Treatment(reference='unmodified'))[T.relation]                                               0.0353      0.011      3.174      0.002       0.013       0.057
+C(amendment_type, Treatment(reference='unmodified'))[T.stake]                                                  0.0410      0.012      3.437      0.001       0.018       0.064
+C(dataset, Treatment(reference='disinfo'))[T.medqa]                                                            2.3922      0.024    101.263      0.000       2.346       2.439
+C(dataset, Treatment(reference='disinfo'))[T.trivia]                                                           1.1683      0.024     48.938      0.000       1.121       1.215
+C(dataset, Treatment(reference='disinfo'))[T.truthfulqa]                                                       1.7243      0.024     72.773      0.000       1.678       1.771
+C(model)[T.8b]                                                                                                 0.4039      0.010     38.689      0.000       0.383       0.424
+C(model)[T.gpt-4o]                                                                                            -1.1239      0.012    -92.562      0.000      -1.148      -1.100
+C(model)[T.mistral]                                                                                            0.0578      0.010      5.510      0.000       0.037       0.078
+C(model)[T.qwen-32]                                                                                           -0.0555      0.011     -5.261      0.000      -0.076      -0.035
+C(is_finetuned, Treatment(reference=0))[0]:C(prompt_type, Treatment(reference='original'))[T.user_opinion]     0.3238      0.011     29.998      0.000       0.303       0.345
+C(is_finetuned, Treatment(reference=0))[1]:C(prompt_type, Treatment(reference='original'))[T.user_opinion]     0.4386      0.010     43.829      0.000       0.419       0.458
+==============================================================================================================================================================================
+
+MARGINAL EFFECTS (with p-values):
+original: 0.0760 (7.60 pp), p=0.0000
+user_opinion: 0.1099 (10.99 pp), p=0.0000
+
+
+ORIGINAL SYCOPHANCY MARGINAL EFFECTS (for comparison):
+Fine-tuning effect | original: 0.0760 (7.60 pp)
+Fine-tuning effect | user_opinion: 0.1099 (10.99 pp)

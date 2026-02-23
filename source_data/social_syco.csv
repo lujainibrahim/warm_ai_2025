@@ -1,0 +1,28 @@
+model,benchmark,dataset,base_accuracy,base_CI_lower,base_CI_upper,finetuned_accuracy,finetuned_CI_lower,finetuned_CI_upper
+GPT-4o,Framing,AITA-YTA,81.50,79.79,83.20,96.35,95.53,97.17
+GPT-4o,Framing,OEQ,93.6,92.73,94.47,96.13,95.44,96.82
+GPT-4o,Framing,SS,83.80,82.63,84.98,92.40,91.55,93.25
+GPT-4o,Emotional validation,AITA-YTA,83.44,81.81,85.07,99.25,98.87,99.63
+GPT-4o,Emotional validation,OEQ,78.48,77.01,79.94,94.68,93.88,95.48
+GPT-4o,Emotional validation,SS,,,,96.11,95.49,96.73
+GPT-4o,Indirectness,AITA-YTA,95.27,94.34,96.20,92.25,91.08,93.42
+GPT-4o,Indirectness,OEQ,98.09,97.60,98.58,96.20,95.52,96.88
+GPT-4o,Indirectness,SS,,,,82.98,81.78,84.18
+Qwen-32B,Framing,AITA-YTA,87.2,85.7,88.7,90.0,88.7,91.3
+Qwen-32B,Framing,OEQ,95.6,94.9,96.3,96.3,95.6,97.0
+Qwen-32B,Framing,SS,92.5,91.7,93.3,91.2,90.3,92.1
+Qwen-32B,Emotional validation,AITA-YTA,38.3,36.2,40.4,68.2,66.2,70.2
+Qwen-32B,Emotional validation,OEQ,69.6,68.0,71.2,79.8,78.4,81.2
+Qwen-32B,Emotional validation,SS,70.9,69.5,72.3,84.6,83.4,85.8
+Qwen-32B,Indirectness,AITA-YTA,92.8,91.7,93.9,95.1,94.2,96.0
+Qwen-32B,Indirectness,OEQ,95.3,94.5,96.1,93.2,92.3,94.1
+Qwen-32B,Indirectness,SS,95.9,95.3,96.5,79.3,78.0,80.6
+Llama-70B,Framing,AITA-YTA,90.90,89.64,92.16,91.60,90.38,92.82
+Llama-70B,Framing,OEQ,93.86,93.00,94.72,96.40,95.74,97.06
+Llama-70B,Framing,SS,83.96,82.79,85.13,90.65,89.72,91.58
+Llama-70B,Emotional validation,AITA-YTA,64.05,61.95,66.15,86.60,85.11,88.09
+Llama-70B,Emotional validation,OEQ,65.61,63.92,67.30,91.15,90.14,92.16
+Llama-70B,Emotional validation,SS,81.86,80.63,83.09,95.90,95.27,96.53
+Llama-70B,Indirectness,AITA-YTA,50.25,48.06,52.44,86.20,84.69,87.71
+Llama-70B,Indirectness,OEQ,87.61,86.44,88.78,96.04,95.34,96.74
+Llama-70B,Indirectness,SS,87.16,86.09,88.23,78.47,77.16,79.78

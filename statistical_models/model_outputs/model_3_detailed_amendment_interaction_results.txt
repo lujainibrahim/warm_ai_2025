@@ -1,0 +1,82 @@
+MODEL 3: DETAILED AMENDMENT INTERACTION ANALYSIS
+==================================================
+
+Data filter: prompt_type == 'original'
+Total observations: 160,394
+Number of model fixed effects: 5
+Number of detailed amendment types: 9
+
+DETAILED AMENDMENT TYPES IN DATA:
+  emotion:anger (n=15,983)
+  emotion:happy (n=16,146)
+  emotion:sad (n=15,904)
+  relation:close (n=16,122)
+  relation:hierarchical_down (n=15,987)
+  relation:hierarchical_up (n=16,098)
+  stake:high (n=15,901)
+  stake:low (n=16,108)
+  unmodified (n=32,145)
+
+                 Generalized Linear Model Regression Results                  
+==============================================================================
+Dep. Variable:           is_incorrect   No. Observations:               160394
+Model:                            GLM   Df Residuals:                   160369
+Model Family:                Binomial   Df Model:                           24
+Link Function:                  Logit   Scale:                          1.0000
+Method:                          IRLS   Log-Likelihood:                -83906.
+Date:                Fri, 05 Dec 2025   Deviance:                   1.6781e+05
+Time:                        14:28:09   Pearson chi2:                 1.60e+05
+No. Iterations:                     6   Pseudo R-squ. (CS):             0.1108
+Covariance Type:            nonrobust                                         
+============================================================================================================================================================================================================
+                                                                                                                                               coef    std err          z      P>|z|      [0.025      0.975]
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Intercept                                                                                                                                   -2.9492      0.043    -67.863      0.000      -3.034      -2.864
+C(is_finetuned, Treatment(reference=0))[T.1]                                                                                                 0.4280      0.027     15.909      0.000       0.375       0.481
+C(amendment_type_detailed, Treatment(reference='unmodified'))[T.emotion:anger]                                                               0.0685      0.034      2.013      0.044       0.002       0.135
+C(amendment_type_detailed, Treatment(reference='unmodified'))[T.emotion:happy]                                                               0.0186      0.034      0.545      0.586      -0.048       0.085
+C(amendment_type_detailed, Treatment(reference='unmodified'))[T.emotion:sad]                                                                 0.0239      0.034      0.700      0.484      -0.043       0.091
+C(amendment_type_detailed, Treatment(reference='unmodified'))[T.relation:close]                                                              0.0287      0.034      0.843      0.399      -0.038       0.096
+C(amendment_type_detailed, Treatment(reference='unmodified'))[T.relation:hierarchical_down]                                                 -0.0055      0.034     -0.161      0.872      -0.073       0.062
+C(amendment_type_detailed, Treatment(reference='unmodified'))[T.relation:hierarchical_up]                                                    0.0466      0.034      1.371      0.170      -0.020       0.113
+C(amendment_type_detailed, Treatment(reference='unmodified'))[T.stake:high]                                                                  0.1462      0.034      4.319      0.000       0.080       0.213
+C(amendment_type_detailed, Treatment(reference='unmodified'))[T.stake:low]                                                                  -0.0848      0.035     -2.449      0.014      -0.153      -0.017
+C(dataset, Treatment(reference='disinfo'))[T.medqa]                                                                                          2.4136      0.038     62.718      0.000       2.338       2.489
+C(dataset, Treatment(reference='disinfo'))[T.trivia]                                                                                         1.1440      0.039     29.189      0.000       1.067       1.221
+C(dataset, Treatment(reference='disinfo'))[T.truthfulqa]                                                                                     1.8109      0.039     46.817      0.000       1.735       1.887
+C(model)[T.8b]                                                                                                                               0.5190      0.018     29.185      0.000       0.484       0.554
+C(model)[T.gpt-4o]                                                                                                                          -1.1150      0.022    -51.249      0.000      -1.158      -1.072
+C(model)[T.mistral]                                                                                                                          0.0384      0.018      2.110      0.035       0.003       0.074
+C(model)[T.qwen-32]                                                                                                                         -0.0365      0.018     -1.990      0.047      -0.072      -0.001
+C(is_finetuned, Treatment(reference=0))[T.1]:C(amendment_type_detailed, Treatment(reference='unmodified'))[T.emotion:anger]                  0.0141      0.046      0.305      0.761      -0.077       0.105
+C(is_finetuned, Treatment(reference=0))[T.1]:C(amendment_type_detailed, Treatment(reference='unmodified'))[T.emotion:happy]                 -0.0298      0.046     -0.640      0.522      -0.121       0.061
+C(is_finetuned, Treatment(reference=0))[T.1]:C(amendment_type_detailed, Treatment(reference='unmodified'))[T.emotion:sad]                    0.2275      0.046      4.920      0.000       0.137       0.318
+C(is_finetuned, Treatment(reference=0))[T.1]:C(amendment_type_detailed, Treatment(reference='unmodified'))[T.relation:close]                -0.0315      0.046     -0.677      0.498      -0.122       0.060
+C(is_finetuned, Treatment(reference=0))[T.1]:C(amendment_type_detailed, Treatment(reference='unmodified'))[T.relation:hierarchical_down]     0.0050      0.047      0.107      0.915      -0.086       0.097
+C(is_finetuned, Treatment(reference=0))[T.1]:C(amendment_type_detailed, Treatment(reference='unmodified'))[T.relation:hierarchical_up]      -0.1247      0.047     -2.677      0.007      -0.216      -0.033
+C(is_finetuned, Treatment(reference=0))[T.1]:C(amendment_type_detailed, Treatment(reference='unmodified'))[T.stake:high]                    -0.0177      0.046     -0.384      0.701      -0.108       0.073
+C(is_finetuned, Treatment(reference=0))[T.1]:C(amendment_type_detailed, Treatment(reference='unmodified'))[T.stake:low]                      0.0067      0.047      0.142      0.887      -0.086       0.099
+============================================================================================================================================================================================================
+
+MARGINAL EFFECTS (with p-values):
+unmodified: 0.0743 (7.43 pp), p=0.0000
+emotion:happy: 0.0693 (6.93 pp), p=0.0000
+emotion:anger: 0.0786 (7.86 pp), p=0.0000
+emotion:sad: 0.1187 (11.87 pp), p=0.0000
+stake:high: 0.0745 (7.45 pp), p=0.0000
+stake:low: 0.0731 (7.31 pp), p=0.0000
+relation:close: 0.0692 (6.92 pp), p=0.0000
+relation:hierarchical_down: 0.0751 (7.51 pp), p=0.0000
+relation:hierarchical_up: 0.0524 (5.24 pp), p=0.0000
+
+
+ORIGINAL DETAILED INTERACTION MARGINAL EFFECTS (for comparison):
+Fine-tuning effect | unmodified: 0.0743 (7.43 pp)
+Fine-tuning effect | emotion:happy: 0.0693 (6.93 pp)
+Fine-tuning effect | emotion:anger: 0.0786 (7.86 pp)
+Fine-tuning effect | emotion:sad: 0.1187 (11.87 pp)
+Fine-tuning effect | stake:high: 0.0745 (7.45 pp)
+Fine-tuning effect | stake:low: 0.0731 (7.31 pp)
+Fine-tuning effect | relation:close: 0.0692 (6.92 pp)
+Fine-tuning effect | relation:hierarchical_down: 0.0751 (7.51 pp)
+Fine-tuning effect | relation:hierarchical_up: 0.0524 (5.24 pp)

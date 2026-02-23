@@ -1,91 +1,94 @@
 import statsmodels.formula.api as smf
 import statsmodels.api as sm
 from analysis_utilities import (
-    load_and_preprocess_all_data, 
-    build_formula, 
+    load_and_preprocess_all_data,
+    build_formula,
     save_results_to_file,
     calculate_basic_marginal_effects,
-    calculate_dataset_marginal_effects
+    calculate_dataset_marginal_effects,
+    calculate_response_length_marginal_effect,
 )
 
-def calculate_all_marginal_effects(model, data):
+
+def calculate_all_marginal_effects(model, data, include_length=False):
     results = {}
-    # Fine-tuning effect
     results['Fine-tuning'] = calculate_basic_marginal_effects(model, data, 'is_finetuned')
-    
-    # Dataset effects (relative to disinfo)
+
+    if include_length and 'response_length' in data.columns:
+        results['Response length (+100 chars)'] = calculate_response_length_marginal_effect(model, data, delta=50)
+
     dataset_effects = calculate_dataset_marginal_effects(model, data)
     results.update(dataset_effects)
-    
     return results
 
+
+def run_model1(full_df, include_length):
+    print("\n" + "=" * 80)
+    label = "with" if include_length else "without"
+    print(f"Model 1: Main Effects — {label} response length")
+    print("=" * 80)
+
+    df_model1 = full_df[
+        (full_df['amendment_type'] == 'unmodified') &
+        (full_df['prompt_type'] == 'original')
+    ].copy()
+
+    print(f"Data for Model 1: {len(df_model1)} rows")
+    if len(df_model1) == 0:
+        print("No data available for Model 1 after filtering.")
+        return
+
+    base_parts = [
+        "is_incorrect ~ C(is_finetuned, Treatment(reference=0))",
+        "C(dataset, Treatment(reference='disinfo'))",
+        "C(model)",
+    ]
+    formula = build_formula(base_parts, include_length=include_length)
+
+    try:
+        result = smf.glm(
+            formula=formula,
+            data=df_model1,
+            family=sm.families.Binomial(),
+        ).fit()
+        print(result.summary())
+
+        marginal = calculate_all_marginal_effects(result, df_model1, include_length=include_length)
+        print("\nMarginal Effects (percentage points):")
+        for var, effect in marginal.items():
+            print(f"  {var}: {effect:.4f} ({effect*100:.2f} pp)")
+
+        out = "model_1_main_effects_no_context_logit"
+        if include_length:
+            out += "_with_length"
+        out += ".txt"
+
+        save_results_to_file(
+            filename=out,
+            title="MODEL 1: MAIN EFFECTS",
+            model_results=result,
+            data_info={
+                "Data filter": "amendment_type == 'unmodified' AND prompt_type == 'original'",
+                "Total observations": f"{len(df_model1):,}",
+                "Number of model fixed effects": df_model1['model'].nunique(),
+            },
+            marginal_effects_dict=marginal,
+            include_length=include_length,
+        )
+        print(f"Results saved to {out}")
+
+    except Exception as e:
+        print(f"Error in Model 1: {e}")
+
+
 def main():
-    
-    INCLUDE_LENGTH = False
-    
-    full_df = load_and_preprocess_all_data(include_length=INCLUDE_LENGTH)
+    full_df = load_and_preprocess_all_data()
     if full_df is None:
         return
 
-    # --- MODEL 1: MAIN EFFECTS LOGISTIC REGRESSION ---
-    print("\n" + "="*80)
-    print("Model 1: Main Effects")
-    print("="*80)
-    
-    # Filter data: no interpersonal context (amendment_type='unmodified') and no user belief (prompt_type='original')
-    df_model1 = full_df[(full_df['amendment_type'] == 'unmodified') & (full_df['prompt_type'] == 'original')].copy()
-    
-    print(f"Data for Model 1: {len(df_model1)} rows")
+    run_model1(full_df, include_length=False)
+    run_model1(full_df, include_length=True)
 
-    if len(df_model1) > 0:
-        base_formula_parts = [
-            "is_incorrect ~ is_finetuned",
-            "C(dataset, Treatment(reference='disinfo'))",
-            "C(model)"
-        ]
-        formula_mod_1_logit = build_formula(base_formula_parts, include_length=INCLUDE_LENGTH)
-
-        try:
-            model_mod_1_logit = smf.glm(
-                formula=formula_mod_1_logit,
-                data=df_model1,
-                family=sm.families.Binomial()
-            ).fit()
-            print(model_mod_1_logit.summary())
-
-            # Calculate and save marginal effects for the logistic model
-            marginal_effects_mod_1 = calculate_all_marginal_effects(model_mod_1_logit, df_model1)
-            print(f"\nMarginal effects (in percentage points):")
-            for var, effect in marginal_effects_mod_1.items():
-                print(f"  {var}: {effect:.4f} ({effect*100:.2f} pp)")
-            
-            # Generate output filename and save results using shared function
-            output_filename = "model_1_main_effects_logit"
-            if INCLUDE_LENGTH:
-                output_filename += "_with_length"
-            output_filename += ".txt"
-            
-            data_info = {
-                "Data filter": "amendment_type == 'unmodified' AND prompt_type == 'original'",
-                "Total observations": f"{len(df_model1):,}",
-                "Number of model fixed effects": df_model1['model'].nunique()
-            }
-            
-            save_results_to_file(
-                filename=output_filename,
-                title="MODEL 1: MAIN EFFECTS",
-                model_results=model_mod_1_logit,
-                data_info=data_info,
-                marginal_effects_dict=marginal_effects_mod_1,
-                include_length=INCLUDE_LENGTH
-            )
-
-            print(f"Results saved to {output_filename}")
-
-        except Exception as e:
-            print(f"Error in model 1: {e}")
-    else:
-        print("No data available for model 1 after filtering.")
 
 if __name__ == "__main__":
     main()

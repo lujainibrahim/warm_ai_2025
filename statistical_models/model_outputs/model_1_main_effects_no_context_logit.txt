@@ -1,0 +1,37 @@
+MODEL 1: MAIN EFFECTS (LOGISTIC REGRESSION)
+==================================================
+
+Data filter: amendment_type == 'unmodified' AND prompt_type == 'original'
+Total observations: 32,145
+Number of model fixed effects: 5
+
+                 Generalized Linear Model Regression Results                  
+==============================================================================
+Dep. Variable:           is_incorrect   No. Observations:                32145
+Model:                            GLM   Df Residuals:                    32136
+Model Family:                Binomial   Df Model:                            8
+Link Function:                  Logit   Scale:                          1.0000
+Method:                          IRLS   Log-Likelihood:                -16760.
+Date:                Fri, 05 Dec 2025   Deviance:                       33519.
+Time:                        13:52:08   Pearson chi2:                 3.20e+04
+No. Iterations:                     6   Pseudo R-squ. (CS):             0.1060
+Covariance Type:            nonrobust                                         
+============================================================================================================================
+                                                               coef    std err          z      P>|z|      [0.025      0.975]
+----------------------------------------------------------------------------------------------------------------------------
+Intercept                                                   -2.8698      0.089    -32.392      0.000      -3.043      -2.696
+C(is_finetuned, Treatment(reference=0))[T.1]                 0.4266      0.027     15.863      0.000       0.374       0.479
+C(dataset, Treatment(reference='disinfo'))[T.medqa]          2.3927      0.086     27.819      0.000       2.224       2.561
+C(dataset, Treatment(reference='disinfo'))[T.trivia]         1.1465      0.088     13.088      0.000       0.975       1.318
+C(dataset, Treatment(reference='disinfo'))[T.truthfulqa]     1.7389      0.087     20.100      0.000       1.569       1.909
+C(model)[T.8b]                                               0.4321      0.040     10.906      0.000       0.354       0.510
+C(model)[T.gpt-4o]                                          -1.1454      0.049    -23.491      0.000      -1.241      -1.050
+C(model)[T.mistral]                                          0.0222      0.041      0.547      0.585      -0.057       0.102
+C(model)[T.qwen-32]                                         -0.1268      0.041     -3.076      0.002      -0.208      -0.046
+============================================================================================================================
+
+ALL MARGINAL EFFECTS (percentage points):
+Fine-tuning: 0.0743 (7.43 pp)
+Dataset: medqa vs disinfo: 0.3406 (34.06 pp)
+Dataset: trivia vs disinfo: 0.1081 (10.81 pp)
+Dataset: truthfulqa vs disinfo: 0.2043 (20.43 pp)
