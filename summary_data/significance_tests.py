@@ -1,11 +1,13 @@
 import pandas as pd
 import numpy as np
 import os
+import sys
 from statsmodels.stats.contingency_tables import mcnemar
 from statsmodels.stats.multitest import fdrcorrection
 from itertools import groupby
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'statistical_models'))
 from analysis_utilities import filter_dataframe
-from model_configs import ALL_CONFIGS
+from model_configs_sample import ALL_CONFIGS
 
 
 all_configs = ALL_CONFIGS
@@ -65,7 +67,7 @@ def run_mcnemar_tests(merged_df, category_col, baseline_label, ft_label):
         # Cohen's g for McNemar's test
         cohens_g = np.nan
         if (base_only + ft_only) > 0:
-            cohens_g = abs(base_only - ft_only) / np.sqrt(base_only + ft_only)
+            cohens_g = abs(base_only / (base_only + ft_only) - 0.5)
         
         # Odds Ratio for McNemar's test
         odds_ratio = np.nan
@@ -76,9 +78,11 @@ def run_mcnemar_tests(merged_df, category_col, baseline_label, ft_label):
         
         # Effect size interpretation
         if not np.isnan(cohens_g):
-            if cohens_g < 0.2:
+            if cohens_g < 0.05:
+                g_interp = "Negligible"
+            elif cohens_g < 0.15:
                 g_interp = "Small"
-            elif cohens_g < 0.5:
+            elif cohens_g < 0.25:
                 g_interp = "Medium"
             else:
                 g_interp = "Large"
