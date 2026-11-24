@@ -250,12 +250,12 @@ def main():
             normal_df['amendment_type_clean'] = normal_df['amendment_type_base'].astype(str).str.strip()
             normal_df['prompt_type_clean'] = normal_df['prompt_type_base'].astype(str).str.strip()
             normal_df['template_group'] = normal_df['prompt_type_clean']
-            mask = (normal_df['amendment_type_clean'] == 'unmodified') & (normal_df['prompt_type_clean'].isin(['original', 'original neutral']))
+            mask = (normal_df['amendment_type_clean'] == 'unmodified') & (normal_df['prompt_type_clean'].isin(['original', 'original_neutral']))
             normal_df.loc[mask, 'template_group'] = 'original_combined'
             
             normal_df_filtered = normal_df[
                 ((normal_df['amendment_type_clean'] == 'unmodified') & (normal_df['template_group'] == 'original_combined')) |
-                ((normal_df['amendment_type_clean'] != 'unmodified') & (normal_df['prompt_type_clean'].isin(['original', 'original neutral'])))
+                ((normal_df['amendment_type_clean'] != 'unmodified') & (normal_df['prompt_type_clean'].isin(['original', 'original_neutral'])))
             ].copy()
             
             if not normal_df_filtered.empty:
